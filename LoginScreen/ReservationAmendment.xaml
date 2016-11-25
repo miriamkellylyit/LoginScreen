@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LoginScreen"
         mc:Ignorable="d"
-        Title="ReservationAmendment" Height="300" Width="550" WindowStyle="None" WindowStartupLocation="CenterScreen">
+        Title="ReservationAmendment" Height="400" Width="550" WindowStyle="None" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -16,10 +16,10 @@
                 <RowDefinition Height="10*" />
                 <RowDefinition Height="52*" />
             </Grid.RowDefinitions>
-            <Label x:Name="lblScreenTitle" Content="Reservation Amendment" Grid.Column="0" HorizontalAlignment="Center"  VerticalAlignment="Center"  FontSize="18" Height="34" Width="230" FontWeight="Bold"/>
-            <StackPanel HorizontalAlignment="Right" Height="68" Grid.Row="1" VerticalAlignment="Top" Width="110" Margin="0,172,0,0" Grid.Column="1">
-                <Button x:Name="btnExistingCustomer" Content="Existing Customer" HorizontalAlignment="Center" Margin="1" Height="18"  Width="104" Click="btnExit_Click" FontSize="10" />
-                <Button x:Name="btnPayment" Content="Payment" HorizontalAlignment="Center" Margin="1"  Height="18"  Width="104" Click="btnExit_Click" FontSize="10" />
+            <Label x:Name="lblTitle" Content="Reservation Amendment" Grid.Column="0" HorizontalAlignment="Center"  VerticalAlignment="Center"  FontSize="18" Height="34" Width="230" FontWeight="Bold" Margin="135,3,67,10"/>
+            <StackPanel HorizontalAlignment="Right" Height="63" Grid.Row="1" VerticalAlignment="Bottom" Width="110" Margin="0,181,0,0" Grid.Column="1">
+                <Button x:Name="btnCheckAvailability" Content="Check Availability" HorizontalAlignment="Center" Margin="1" Height="18"  Width="104"  FontSize="10" Click="btnCheckAvailability_Click"  />
+                <Button x:Name="btnUpdate" Content="Update" HorizontalAlignment="Center" Margin="1"  Height="18"  Width="104"  FontSize="10" Click="btnUpdate_Click"  />
                 <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Center" Margin="1"  Height="18"  Width="104" Click="btnExit_Click" FontSize="10"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Right" Height="170" Grid.Row="1" VerticalAlignment="Top" Width="84">
@@ -32,30 +32,39 @@
                 <Label x:Name="lblReservationNumber" Content="Reservation Number:" HorizontalAlignment="Left" Height="24" Width="124"/>
                 <Label x:Name="lblRoomNumber" Content="RoomNumber:" HorizontalAlignment="Left" Height="24"  Width="124"/>
                 <Label x:Name="lblRoomType" Content="Room Type:" HorizontalAlignment="Left" Height="24" Width="124"/>
-                <Label x:Name="lblNumberOfAdults" Content="Number of Adults:" HorizontalAlignment="Left" Height="24"  Width="124"/>
-                <Label x:Name="lblNumberOfChild" Content="Number of Children (0-15:" HorizontalAlignment="Left" Height="24"  Width="149"/>
-                <Label x:Name="lblTotalAmtPaid" Content="Total Amount Paid:" HorizontalAlignment="Left" Height="24"  Width="124"/>
-                <Label x:Name="lblOutstandingBal" Content="Outstanding Balance:" HorizontalAlignment="Left" Height="24"  Width="124"/>
-                <Label x:Name="lblChangeDateFrom" Content="Change Date From:" HorizontalAlignment="Left" Height="24"  Width="124"/>
-                <Label x:Name="lblChangeDateTo" Content="Change Date To:" HorizontalAlignment="Left" Height="24"  Width="124"/>
+                <Label x:Name="lblNoOfAdults" Content="Number of Adults:" HorizontalAlignment="Left" Height="24"  Width="124"/>
+                <Label x:Name="lblNoOfChild" Content="Number of Children (0-15:" HorizontalAlignment="Left" Height="24"  Width="149"/>
+                <Label x:Name="lblTotalPaid" Content="Total Amount Paid:" HorizontalAlignment="Left" Height="24"  Width="124"/>
+                <Label x:Name="lblOutstanding" Content="Outstanding Balance:" HorizontalAlignment="Left" Height="24"  Width="124"/>
+                <Label x:Name="lblNewDateFrom" Content="New Date From:" HorizontalAlignment="Left" Height="24"  Width="124"/>
+                <Label x:Name="lblNewDateTo" Content="New Date To:" HorizontalAlignment="Left" Height="24"  Width="124"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" Height="222" Margin="159,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="94">
                 <TextBox x:Name="tbxReservationNumber" HorizontalAlignment="Left" Height="20" Margin="5,4,0,0" TextWrapping="Wrap" Width="79"/>
                 <TextBox x:Name="tbxRoomNumber" HorizontalAlignment="Left" Height="20" Margin="5,4,0,0" TextWrapping="Wrap" Width="79"/>
-                <TextBox x:Name="tbxRoomType" HorizontalAlignment="Left" Height="20" Margin="5,4,0,0" TextWrapping="Wrap" Width="79"/>
-                <TextBox x:Name="tbxNumberOfAdults" HorizontalAlignment="Left" Height="20" Margin="5,4,0,0" TextWrapping="Wrap" Width="79"/>
-                <TextBox x:Name="tbxNumberOfChild" HorizontalAlignment="Left" Height="20" Margin="5,4,0,0" TextWrapping="Wrap" Width="79"/>
-                <TextBox x:Name="tbxTotalAmtPaid" HorizontalAlignment="Left" Height="20" Margin="5,4,0,0" TextWrapping="Wrap" Width="79"/>
-                <TextBox x:Name="tbxOutstandingBal" HorizontalAlignment="Left" Height="20" Margin="5,4,0,0" TextWrapping="Wrap" Width="79"/>
+                <ComboBox x:Name="cboRoomType" HorizontalAlignment="Left" Height="20" Margin="5,4,0,0" Width="79"/>
+                <ComboBox x:Name="cboNoOfAdults" HorizontalAlignment="Left" Height="20" Margin="5,4,0,0" Width="79"/>
+                <ComboBox x:Name="cboNoOfChildren" HorizontalAlignment="Left" Height="20" Margin="5,4,0,0" Width="79"/>
+                <TextBox x:Name="tbxTotalPaid" HorizontalAlignment="Left" Height="20" Margin="5,4,0,0" TextWrapping="Wrap" Width="79"/>
+                <TextBox x:Name="tbxOutstanding" HorizontalAlignment="Left" Height="20" Margin="5,4,0,0" TextWrapping="Wrap" Width="79"/>
                 <TextBox x:Name="tbxPostCode" HorizontalAlignment="Left" Height="20" Margin="5,4,0,0" TextWrapping="Wrap" Width="79"/>
                 <TextBox x:Name="tbxChangeDateTo" HorizontalAlignment="Left" Height="20" Margin="5,4,0,0" TextWrapping="Wrap" Width="79"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" Height="195" Margin="253,0,0,0" VerticalAlignment="Top" Width="94" Grid.Row="1">
-                <Label x:Name="lblDateFrom" Content="Email Address:" HorizontalAlignment="Left" Height="24" Width="93"/>
-                <Label x:Name="lblDateTo" Content="Phone Number:" HorizontalAlignment="Left" Height="24" Width="93"/>
+                <Label x:Name="lblDateFrom" Content="Date From:" HorizontalAlignment="Left" Height="24" Width="93"/>
+                <Label x:Name="lblDateTo" Content="Date To:" HorizontalAlignment="Left" Height="24" Width="93"/>
                 <Label x:Name="lblLengthOfStay" Content="Length of Stay:" HorizontalAlignment="Left" Height="24" Width="93"/>
                 <Label x:Name="lblNotes" Content="Notes:" HorizontalAlignment="Left" Height="24" Width="93"/>
             </StackPanel>
+            <StackPanel HorizontalAlignment="Left" Height="51"  Grid.Row="1" VerticalAlignment="Top" Width="154" Margin="0,238,0,0">
+                <Label x:Name="lblTotalCostOfRoom" Content="Total Cost Of Room:" HorizontalAlignment="Left" Height="24"  Width="124"/>
+                <Label x:Name="lblNewRoomNumber" Content="Room Number:" HorizontalAlignment="Left" Height="24"  Width="124"/>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Left" Height="51" Margin="159,238,0,0" Grid.Row="1" VerticalAlignment="Top" Width="94">
+                <TextBox x:Name="tbxTotalCostOfRoom" HorizontalAlignment="Left" Height="20" Margin="5,4,0,0" TextWrapping="Wrap" Width="79"/>
+                <TextBox x:Name="tbxNewRoomNumber" HorizontalAlignment="Left" Height="20" Margin="5,4,0,0" TextWrapping="Wrap" Width="79"/>
+            </StackPanel>
+            <Label x:Name="lblMessage" Content="" HorizontalAlignment="Left" Height="31" Margin="69,294,0,0" Grid.Row="1" VerticalAlignment="Top" Width="296"/>
         </Grid>
 
     </Grid>

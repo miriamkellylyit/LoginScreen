@@ -1,0 +1,48 @@
+﻿<Window x:Class="LoginScreen.HotelManagement"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LoginScreen"
+        mc:Ignorable="d"
+        Title="HotelManagement" Height="300" Width="500" WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="379*" />
+                <ColumnDefinition Width="113*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*" />
+                <RowDefinition Height="46*" />
+            </Grid.RowDefinitions>
+            <Label x:Name="lblTitle" Content="Hotel Management" Grid.Column="0" HorizontalAlignment="Center"  VerticalAlignment="Center"  FontSize="18" Height="34" Width="184" FontWeight="Bold" Margin="107,6,88,12"/>
+            <StackPanel Grid.Column="1" HorizontalAlignment="Right" Height="41" Grid.Row="1" VerticalAlignment="Bottom" Width="110">
+                <Button x:Name="btnUpdateRate" Content="Update Rate" HorizontalAlignment="Right" Margin="0,1,3,1"  Height="18"  Width="104"  FontSize="10" Click="btnUpdateRate_Click" />
+                <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Right" Margin="0,1,3,1"  Height="18"  Width="104" Click="btnExit_Click" FontSize="10"/>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Left" Height="198" Margin="210,5,0,0" Grid.Row="1" VerticalAlignment="Top" Width="159">
+                <TextBox x:Name="tbxNoOfCanc" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Width="139"/>
+                <TextBox x:Name="tbxNoOfOccupied" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap" Width="139"/>
+                <TextBox x:Name="tbxNoOfUnoccupiedt" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Width="139"/>
+                <TextBox x:Name="tbxTotalPayments" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Width="139"/>
+                <TextBox x:Name="tbxOutstandingPayment" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap" Width="139"/>
+                <TextBox x:Name="tbxAwaitHousekeep" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap" Width="139"/>
+                <ComboBox x:Name="cboYear" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="139"/>
+                <TextBox x:Name="tbxCurrentRate" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap" Width="139"/>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Left" Height="198" Margin="10,5,0,0" Grid.Row="1" VerticalAlignment="Top" Width="195">
+                <Label x:Name="lblNoOfCanc" Content="Number of Cancelled Reservatoins:" HorizontalAlignment="Left" Height="25" Width="195"/>
+                <Label x:Name="lblNoOfOccupied" Content="Number of Rooms Occupied:" HorizontalAlignment="Left" Height="25" Width="195"/>
+                <Label x:Name="lblNoOfUnoccupied" Content="Number of Unoccupied Rooms:" HorizontalAlignment="Left" Height="25" Width="195"/>
+                <Label x:Name="lblTotalPayments" Content="Total Payments:" HorizontalAlignment="Left" Height="25" Width="195"/>
+                <Label x:Name="lblOutstandingPayment" Content="Outstanding Payments:" HorizontalAlignment="Left" Height="25" Width="195"/>
+                <Label x:Name="lblAwaitHousekeep" Content="Rooms awaiting Housekeeping:" HorizontalAlignment="Left" Height="25" Width="195"/>
+                <Label x:Name="lblTypeOfRoom" Content="Type of Room:" HorizontalAlignment="Left" Height="25" Width="195"/>
+                <Label x:Name="lblCurrentRate" Content="Current Rate:" HorizontalAlignment="Left" Height="25" Width="195"/>
+            </StackPanel>
+            <Label x:Name="lblMessageLine" Content="" HorizontalAlignment="Left" Height="24" Margin="68,211,0,0" Grid.Row="1" VerticalAlignment="Top" Width="265"/>
+        </Grid>
+
+    </Grid>
+</Window>

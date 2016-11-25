@@ -26,7 +26,42 @@ namespace LoginScreen
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
+            this.Hide();
+            ReservationMenu RsvMenu = new ReservationMenu();
+            RsvMenu.Owner = this;
+            RsvMenu.ShowDialog();
+        }
 
+        private void btnRequestHousekeep_Click(object sender, RoutedEventArgs e)
+        {
+            //Update Room Status on Database
+
+            //Check system time against check out time
+
+            //If system time is greater than check out time
+            //Display message with outstanding balance
+
+        }
+
+        private void btnPayment_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            Payment PaymentScrn = new Payment();
+            PaymentScrn.Owner = this;
+            PaymentScrn.ShowDialog();
+        }
+
+        private void btnConfirm_Click(object sender, RoutedEventArgs e)
+        {
+            //Update Database
+
+            //Send out confirmation email
+
+            //Return to Reservation Menu
+            this.Hide();
+            ReservationMenu RsvMenu = new ReservationMenu();
+            RsvMenu.Owner = this;
+            RsvMenu.ShowDialog();
         }
     }
 }

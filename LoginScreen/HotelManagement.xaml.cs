@@ -15,26 +15,28 @@ using System.Windows.Shapes;
 namespace LoginScreen
 {
     /// <summary>
-    /// Interaction logic for ReservationDetail.xaml
+    /// Interaction logic for HotelManagement.xaml
     /// </summary>
-    public partial class ReservationDetail : Window
+    public partial class HotelManagement : Window
     {
-        public ReservationDetail()
+        public HotelManagement()
         {
             InitializeComponent();
         }
 
-        private void btnExit_Click(object sender, RoutedEventArgs e)
+        private void btnUpdateRate_Click(object sender, RoutedEventArgs e)
         {
-           
+            //Update Current Rate for Room 
+
         }
 
-        private void btnContinue_Click(object sender, RoutedEventArgs e)
+        private void btnExit_Click(object sender, RoutedEventArgs e)
         {
+            //Go to Management Menu
             this.Hide();
-            GuestDetail GuestDtl = new GuestDetail();
-            GuestDtl.Owner = this;
-            GuestDtl.ShowDialog();
+            ManagementMenu ManMenu = new ManagementMenu();
+            ManMenu.Owner = this;
+            ManMenu.ShowDialog();
         }
     }
 }

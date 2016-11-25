@@ -26,6 +26,15 @@ namespace LoginScreen
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
+            this.Hide();
+            ReservationMenu RsvMenu = new ReservationMenu();
+            RsvMenu.Owner = this;
+            RsvMenu.ShowDialog();
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            //Go to Database and update Cancellation Date
 
         }
     }

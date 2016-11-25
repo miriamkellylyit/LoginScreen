@@ -23,13 +23,13 @@
         <Label x:Name="lblUsername" Content="Username:" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="2" Margin="5,0,0,5" VerticalAlignment="Bottom" FontWeight="Bold" Height="26" Width="70"/>
         <Label x:Name="lblPassword" Content="Password:" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="3" Margin="5,5,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="66"/>
         <Label x:Name="lblHeading" Content="Enter Username and Password:" Grid.Column="1" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Bottom" FontSize="14" FontWeight="Bold" Height="29" Width="212"/>
-        <StackPanel Grid.Column="2" HorizontalAlignment="Right" Height="90" Grid.Row="4" VerticalAlignment="Top" Width="147">
-            <Button x:Name="btnResetPassword" Content="Reset Password" HorizontalAlignment="Right" Margin="0,4,15,4" Height="22"  Width="104" Click="btnContinue_Click" FontSize="10"/>
+        <StackPanel Grid.Column="2" HorizontalAlignment="Right" Height="64" Grid.Row="4" VerticalAlignment="Top" Width="147" Margin="0,26,0,0">
             <Button x:Name="btnContinue" Content="Continue" HorizontalAlignment="Right" Margin="0,4,15,4" Height="22"  Width="104" Click="btnContinue_Click" FontSize="10"/>
             <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Right" Margin="5,4,15,4" Height="22"  Width="104" Click="btnExit_Click" FontSize="10"/>
         </StackPanel>
         <TextBox x:Name="tbxUsername" TabIndex="0" Grid.Column="1" HorizontalAlignment="Left" Margin="5,0,0,5" Height="25" Grid.Row="2" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="180"/>
         <PasswordBox x:Name="passwordBox" TabIndex="1" Grid.Column="1" HorizontalAlignment="Left" Margin="5,5,0,0" Height="25" Grid.Row="3" VerticalAlignment="Top" Width="180"/>
-        <Label x:Name="lblMessage" Content="" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="5,5,0,0" Grid.Row="4" VerticalAlignment="Top" Width="229"/>
+        <Label x:Name="lblMessage" Content="" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="10,43,0,0" Grid.Row="4" VerticalAlignment="Top" Width="229"/>
+        <Button x:Name="btnResetPassword" Content="Reset Password" HorizontalAlignment="Right" Margin="0,10,213,58" Height="22" Width="104" FontSize="10" Grid.Column="1" Grid.Row="4" Click="btnResetPassword_Click"/>
     </Grid>
 </Window>

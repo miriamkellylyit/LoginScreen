@@ -12,19 +12,28 @@ namespace LoginScreen
     using System;
     using System.Collections.Generic;
     
-    public partial class AUTHENTICATION
+    public partial class GUEST
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public AUTHENTICATION()
+        public GUEST()
         {
-            this.EMPLOYEEs = new HashSet<EMPLOYEE>();
+            this.RESERVATIONs = new HashSet<RESERVATION>();
         }
     
-        public string Userid { get; set; }
-        public int AccessLevel { get; set; }
-        public string Password { get; set; }
+        public string GuestID { get; set; }
+        public string FirstName { get; set; }
+        public string SurName { get; set; }
+        public string AddressLine1 { get; set; }
+        public string AddressLine2 { get; set; }
+        public string Town { get; set; }
+        public string County { get; set; }
+        public string Country { get; set; }
+        public string PostCode { get; set; }
+        public string Email { get; set; }
+        public string Phone { get; set; }
+        public string Notes { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EMPLOYEE> EMPLOYEEs { get; set; }
+        public virtual ICollection<RESERVATION> RESERVATIONs { get; set; }
     }
 }

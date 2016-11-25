@@ -24,29 +24,46 @@ namespace LoginScreen
             InitializeComponent();
         }
 
-        private void btnCancelReservation_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnCreateReservation_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnUpdateReservation_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnCheckOut_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
+        //Exit
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
+            //Go to Management Menu
+            this.Hide();
+            ManagementMenu ManMenu = new ManagementMenu();
+            ManMenu.Owner = this;
+            ManMenu.ShowDialog();
+        }
 
+        private void btnCreateUser_Click(object sender, RoutedEventArgs e)
+        {
+            //Go to User Detail Screen
+        }
+
+        private void btnUpdateUser_Click(object sender, RoutedEventArgs e)
+        {
+            //Go to Search User Screen
+            this.Hide();
+            SearchUser SearchUsr = new SearchUser();
+            SearchUsr.Owner = this;
+            SearchUsr.ShowDialog();
+        }
+
+        private void btnDeleteUser_Click(object sender, RoutedEventArgs e)
+        {
+            //Go to Search User Screen
+            this.Hide();
+            SearchUser SearchUsr = new SearchUser();
+            SearchUsr.Owner = this;
+            SearchUsr.ShowDialog();
+        }
+
+        private void btnResetPassword_Click(object sender, RoutedEventArgs e)
+        {
+            //Go to Password Screen
+            this.Hide();
+            Password PasswordScrn = new Password();
+            PasswordScrn.Owner = this;
+            PasswordScrn.ShowDialog();
         }
     }
 }

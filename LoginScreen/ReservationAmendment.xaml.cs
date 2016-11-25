@@ -24,9 +24,25 @@ namespace LoginScreen
             InitializeComponent();
         }
 
+        //Exit
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
+            this.Hide();
+            ReservationMenu RsvMenu = new ReservationMenu();
+            RsvMenu.Owner = this;
+            RsvMenu.ShowDialog();
+        }
 
+        //Update
+       private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            //Update Database with detail from Reservation Amendment Screen
+        }
+
+        //Check Availability
+        private void btnCheckAvailability_Click(object sender, RoutedEventArgs e)
+        {
+            //Go to Database and check for rooms available for New dates entered
         }
     }
 }

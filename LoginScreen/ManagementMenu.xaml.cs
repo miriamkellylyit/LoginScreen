@@ -26,17 +26,30 @@ namespace LoginScreen
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
-
+            //Return to Login Screen
+            this.Hide();
+            MainWindow Login = new MainWindow();
+            Login.Owner = this;
+            Login.ShowDialog();
         }
 
-        private void btnCancelReservation_Click(object sender, RoutedEventArgs e)
-        {
 
+        private void btnHotelManagement_Click(object sender, RoutedEventArgs e)
+        {
+            //Go to Hotel Management
+            this.Hide();
+            HotelManagement HotelMan = new HotelManagement();
+            HotelMan.Owner = this;
+            HotelMan.ShowDialog();
         }
 
-        private void btnCreateReservation_Click(object sender, RoutedEventArgs e)
+        private void btnAdministration_Click(object sender, RoutedEventArgs e)
         {
-
+            //Go to Administration Menu
+            this.Hide();
+            AdministrationMenu AdminMenu = new AdministrationMenu();
+            AdminMenu.Owner = this;
+            AdminMenu.ShowDialog();
         }
     }
 }

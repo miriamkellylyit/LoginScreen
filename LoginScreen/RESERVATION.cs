@@ -34,6 +34,7 @@ namespace LoginScreen
         public string Notes { get; set; }
         public Nullable<System.DateTime> CancelDate { get; set; }
     
+        public virtual GUEST GUEST { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PAYMENT> PAYMENTs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

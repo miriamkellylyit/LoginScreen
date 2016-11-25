@@ -26,7 +26,24 @@ namespace LoginScreen
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
+            //Hide this screen
+            this.Hide();
+            //Go to Reservation Menu
+            ReservationMenu RsvMenu = new ReservationMenu();
+            RsvMenu.Owner = this;
+            RsvMenu.ShowDialog();
+        }
 
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            //Go off to Database to find record
+
+            //Populate the Reservation Amendment Screen
+
+            //Display the Reservation Amendment Screen
+            ReservationAmendment RsvAmend = new ReservationAmendment();
+            RsvAmend.Owner = this;
+            RsvAmend.ShowDialog();
         }
     }
 }

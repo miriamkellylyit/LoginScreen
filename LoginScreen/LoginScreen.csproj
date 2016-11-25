@@ -93,8 +93,14 @@
     <Compile Include="EMPLOYEE.cs">
       <DependentUpon>MKDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="GUEST.cs">
+      <DependentUpon>MKDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="GuestDetail.xaml.cs">
       <DependentUpon>GuestDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HotelManagement.xaml.cs">
+      <DependentUpon>HotelManagement.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
@@ -107,15 +113,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MKDataModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="MKDataModel.Designer.cs">
-      <DependentUpon>MKDataModel.edmx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="MKDataModel1.cs">
+    <Compile Include="MKDataModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MKDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MKDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MKDataModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Password.xaml.cs">
       <DependentUpon>Password.xaml</DependentUpon>
@@ -159,6 +165,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GuestDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HotelManagement.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -278,13 +288,13 @@
     <Content Include="MKDataModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MKDataModel.edmx</DependentUpon>
-      <LastGenOutput>MKDataModel1.cs</LastGenOutput>
+      <LastGenOutput>MKDataModel.cs</LastGenOutput>
     </Content>
     <Content Include="MKSQLDatabase.mdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="MKSQLDatabase_log.ldf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>MKSQLDatabase.mdf</DependentUpon>
     </Content>
   </ItemGroup>

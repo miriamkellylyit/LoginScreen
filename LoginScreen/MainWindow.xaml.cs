@@ -90,6 +90,8 @@ namespace LoginScreen
             //Run the mtdGetUserDetails method with the inptted user name and password information
             userDetails = mtdGetUserDetails(currentUser, currentPassword);
 
+
+            //Normal User
             if (userDetails.AccessLevel == "1")
             {
                 this.Hide();
@@ -98,6 +100,16 @@ namespace LoginScreen
                 RsvMenu.ShowDialog();
             }
 
+            //Management
+            if (userDetails.AccessLevel == "2")
+            {
+                this.Hide();
+                ManagementMenu ManMenu = new ManagementMenu();
+                ManMenu.Owner = this;
+                ManMenu.ShowDialog();
+            }
+
+            //Other
             else
             {
                
@@ -108,6 +120,15 @@ namespace LoginScreen
 
             }
          
+        }
+
+        private void btnResetPassword_Click(object sender, RoutedEventArgs e)
+        {
+            //Go to Password Screen
+            this.Hide();
+            Password PasswordScrn = new Password();
+            PasswordScrn.Owner = this;
+            PasswordScrn.ShowDialog();
         }
     }
 }

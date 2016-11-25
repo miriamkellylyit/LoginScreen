@@ -26,6 +26,22 @@ namespace LoginScreen
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
+            this.Hide();
+            ReservationDetail RsvDetail = new ReservationDetail();
+            RsvDetail.Owner = this;
+            RsvDetail.ShowDialog();
+        }
+
+        private void btnPayment_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            Payment PaymentScrn = new Payment();
+            PaymentScrn.Owner = this;
+            PaymentScrn.ShowDialog();
+        }
+
+        private void btnExistingCustomer_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }

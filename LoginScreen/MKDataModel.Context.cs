@@ -25,10 +25,11 @@ namespace LoginScreen
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<AUTHENTICATION> AUTHENTICATIONs { get; set; }
         public virtual DbSet<EMPLOYEE> EMPLOYEEs { get; set; }
+        public virtual DbSet<GUEST> GUESTs { get; set; }
         public virtual DbSet<PAYMENT> PAYMENTs { get; set; }
         public virtual DbSet<RESERVATION> RESERVATIONs { get; set; }
         public virtual DbSet<ROOM> ROOMs { get; set; }
+        public virtual DbSet<AUTHENTICATION> AUTHENTICATIONs { get; set; }
     }
 }

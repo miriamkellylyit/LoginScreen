@@ -10,7 +10,7 @@
             <PropertyRef Name="Userid" />
           </Key>
           <Property Name="Userid" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="AccessLevel" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="AccessLevel" Type="int" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <EntityType Name="EMPLOYEE">
@@ -171,15 +171,6 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MKSQLDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="AUTHENTICATION">
-          <Key>
-            <PropertyRef Name="Userid" />
-          </Key>
-          <Property Name="Userid" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="AccessLevel" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="EMPLOYEEs" Relationship="Self.FK_EMPLOYEE_AUTHENTICATION" FromRole="AUTHENTICATION" ToRole="EMPLOYEE" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="EMPLOYEE">
           <Key>
             <PropertyRef Name="EmployeeID" />
@@ -201,7 +192,25 @@
           <Property Name="SickDays" Type="Int32" Nullable="false" />
           <Property Name="Wage" Type="Double" Nullable="false" />
           <Property Name="UserID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="AUTHENTICATION" Relationship="Self.FK_EMPLOYEE_AUTHENTICATION" FromRole="EMPLOYEE" ToRole="AUTHENTICATION" />
+          <NavigationProperty Name="AUTHENTICATION" Relationship="MKSQLDatabaseModel.FK_EMPLOYEE_AUTHENTICATION" FromRole="EMPLOYEE" ToRole="AUTHENTICATION" />
+        </EntityType>
+        <EntityType Name="GUEST">
+          <Key>
+            <PropertyRef Name="GuestID" />
+          </Key>
+          <Property Name="GuestID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SurName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AddressLine1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AddressLine2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Town" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="County" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PostCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="RESERVATIONs" Relationship="Self.FK_RESERVATION_GUEST" FromRole="GUEST" ToRole="RESERVATION" />
         </EntityType>
         <EntityType Name="PAYMENT">
           <Key>
@@ -234,6 +243,7 @@
           <Property Name="NewToDate" Type="DateTime" Precision="0" />
           <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="CancelDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="GUEST" Relationship="Self.FK_RESERVATION_GUEST" FromRole="RESERVATION" ToRole="GUEST" />
           <NavigationProperty Name="PAYMENTs" Relationship="Self.FK_PAYMENT_RESERVATION" FromRole="RESERVATION" ToRole="PAYMENT" />
           <NavigationProperty Name="ROOMs" Relationship="Self.FK_ROOM_RESERVATION" FromRole="RESERVATION" ToRole="ROOM" />
         </EntityType>
@@ -250,15 +260,15 @@
           <Property Name="Housekeeping" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="RESERVATION" Relationship="Self.FK_ROOM_RESERVATION" FromRole="ROOM" ToRole="RESERVATION" />
         </EntityType>
-        <Association Name="FK_EMPLOYEE_AUTHENTICATION">
-          <End Role="AUTHENTICATION" Type="Self.AUTHENTICATION" Multiplicity="1" />
-          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+        <Association Name="FK_RESERVATION_GUEST">
+          <End Role="GUEST" Type="Self.GUEST" Multiplicity="1" />
+          <End Role="RESERVATION" Type="Self.RESERVATION" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="AUTHENTICATION">
-              <PropertyRef Name="Userid" />
+            <Principal Role="GUEST">
+              <PropertyRef Name="GuestID" />
             </Principal>
-            <Dependent Role="EMPLOYEE">
-              <PropertyRef Name="UserID" />
+            <Dependent Role="RESERVATION">
+              <PropertyRef Name="GuestID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -287,14 +297,14 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="MKSQLDatabaseEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="AUTHENTICATIONs" EntityType="Self.AUTHENTICATION" />
           <EntitySet Name="EMPLOYEEs" EntityType="Self.EMPLOYEE" />
+          <EntitySet Name="GUESTs" EntityType="Self.GUEST" />
           <EntitySet Name="PAYMENTs" EntityType="Self.PAYMENT" />
           <EntitySet Name="RESERVATIONs" EntityType="Self.RESERVATION" />
           <EntitySet Name="ROOMs" EntityType="Self.ROOM" />
-          <AssociationSet Name="FK_EMPLOYEE_AUTHENTICATION" Association="Self.FK_EMPLOYEE_AUTHENTICATION">
-            <End Role="AUTHENTICATION" EntitySet="AUTHENTICATIONs" />
-            <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+          <AssociationSet Name="FK_RESERVATION_GUEST" Association="Self.FK_RESERVATION_GUEST">
+            <End Role="GUEST" EntitySet="GUESTs" />
+            <End Role="RESERVATION" EntitySet="RESERVATIONs" />
           </AssociationSet>
           <AssociationSet Name="FK_PAYMENT_RESERVATION" Association="Self.FK_PAYMENT_RESERVATION">
             <End Role="RESERVATION" EntitySet="RESERVATIONs" />
@@ -304,22 +314,39 @@
             <End Role="RESERVATION" EntitySet="RESERVATIONs" />
             <End Role="ROOM" EntitySet="ROOMs" />
           </AssociationSet>
+          <EntitySet Name="AUTHENTICATIONs" EntityType="MKSQLDatabaseModel.AUTHENTICATION" />
+          <AssociationSet Name="FK_EMPLOYEE_AUTHENTICATION" Association="MKSQLDatabaseModel.FK_EMPLOYEE_AUTHENTICATION">
+            <End Role="AUTHENTICATION" EntitySet="AUTHENTICATIONs" />
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="AUTHENTICATION">
+          <Key>
+            <PropertyRef Name="Userid" />
+          </Key>
+          <Property Name="Userid" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="AccessLevel" Type="Int32" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="EMPLOYEEs" Relationship="MKSQLDatabaseModel.FK_EMPLOYEE_AUTHENTICATION" FromRole="AUTHENTICATION" ToRole="EMPLOYEE" />
+        </EntityType>
+        <Association Name="FK_EMPLOYEE_AUTHENTICATION">
+          <End Type="MKSQLDatabaseModel.AUTHENTICATION" Role="AUTHENTICATION" Multiplicity="1" />
+          <End Type="MKSQLDatabaseModel.EMPLOYEE" Role="EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTHENTICATION">
+              <PropertyRef Name="Userid" />
+            </Principal>
+            <Dependent Role="EMPLOYEE">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="MKSQLDatabaseModelStoreContainer" CdmEntityContainer="MKSQLDatabaseEntities">
-          <EntitySetMapping Name="AUTHENTICATIONs">
-            <EntityTypeMapping TypeName="MKSQLDatabaseModel.AUTHENTICATION">
-              <MappingFragment StoreEntitySet="AUTHENTICATION">
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Userid" ColumnName="Userid" />
-                <ScalarProperty Name="AccessLevel" ColumnName="AccessLevel" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="EMPLOYEEs">
             <EntityTypeMapping TypeName="MKSQLDatabaseModel.EMPLOYEE">
               <MappingFragment StoreEntitySet="EMPLOYEE">
@@ -340,6 +367,24 @@
                 <ScalarProperty Name="SickDays" ColumnName="SickDays" />
                 <ScalarProperty Name="Wage" ColumnName="Wage" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GUESTs">
+            <EntityTypeMapping TypeName="MKSQLDatabaseModel.GUEST">
+              <MappingFragment StoreEntitySet="GUEST">
+                <ScalarProperty Name="GuestID" ColumnName="GuestID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="SurName" ColumnName="SurName" />
+                <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+                <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+                <ScalarProperty Name="Town" ColumnName="Town" />
+                <ScalarProperty Name="County" ColumnName="County" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -386,6 +431,15 @@
                 <ScalarProperty Name="CurrentRate" ColumnName="CurrentRate" />
                 <ScalarProperty Name="OriginalRate" ColumnName="OriginalRate" />
                 <ScalarProperty Name="Housekeeping" ColumnName="Housekeeping" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AUTHENTICATIONs">
+            <EntityTypeMapping TypeName="MKSQLDatabaseModel.AUTHENTICATION">
+              <MappingFragment StoreEntitySet="AUTHENTICATION">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="AccessLevel" ColumnName="AccessLevel" />
+                <ScalarProperty Name="Userid" ColumnName="Userid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

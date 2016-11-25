@@ -26,7 +26,23 @@ namespace LoginScreen
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
+            this.Hide();
+            GuestDetail GuestDtl = new GuestDetail();
+            GuestDtl.Owner = this;
+            GuestDtl.ShowDialog();
+        }
 
+        private void btnSubmit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnConfirm_Click(object sender, RoutedEventArgs e)
+        {
+            lblMessageLine.Content = "Invalid details";
+            tbxCardNumber.Text = "";
+            tbxSecurityCode.Text = "";
+            tbxCardNumber.Focus();
         }
     }
 }

@@ -5,46 +5,75 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LoginScreen"
         mc:Ignorable="d"
-        Title="ReservationDetail" Height="300" Width="500" WindowStyle="None" WindowStartupLocation="CenterScreen">
+        Title="ReservationDetail" Height="450" Width="800" WindowState="Maximized" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Grid>
+        <Grid Background="#FFC4DEC1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="383*" />
-                <ColumnDefinition Width="109*" />
+                <ColumnDefinition Width="224*" />
+                <ColumnDefinition Width="179*"/>
+                <ColumnDefinition Width="192*"/>
+                <ColumnDefinition Width="197*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="10*" />
-                <RowDefinition Height="46*" />
+                <RowDefinition Height="77*" />
+                <RowDefinition Height="237*" />
+                <RowDefinition Height="105*"/>
             </Grid.RowDefinitions>
-            <Label x:Name="lblScreenTitle" Content="Reservation Detail" Grid.Column="0" HorizontalAlignment="Center"  VerticalAlignment="Center"  FontSize="18" Height="34" Width="182" FontWeight="Bold" Margin="104,9,97,9"/>
-            <StackPanel HorizontalAlignment="Right" Height="80" Grid.Row="1" VerticalAlignment="Bottom" Width="111" Margin="0,0,0,-3" Grid.ColumnSpan="2">
-                <Button x:Name="btnCheckAvailability" Content="Check Availability" HorizontalAlignment="Center" Margin="2" Height="20"  Width="104"  FontSize="10" />
-                <Button x:Name="btnContinue" Content="Continue" HorizontalAlignment="Center" Margin="2"  Height="20"  Width="104" FontSize="10" Click="btnContinue_Click" />
-                <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Center" Margin="2"  Height="20"  Width="104" Click="btnExit_Click" FontSize="10"/>
+            <Label x:Name="lblScreenTitle" Content="Reservation Detail" HorizontalAlignment="Center"  VerticalAlignment="Center"  FontSize="36" Height="52" Width="339" Margin="187,0,69,25" FontWeight="ExtraBlack" Foreground="#FFD81111" Grid.ColumnSpan="3"/>
+            <StackPanel HorizontalAlignment="Right" Height="100" Grid.Row="2" VerticalAlignment="top" Width="130" Margin="0,7,10,-2" Grid.Column="3">
+                <Button x:Name="btnCheckAvailability" Content="Check Availability" HorizontalAlignment="Center" Margin="5,4,0,4" Height="25"  Width="112" Click="btnCheckAvailability_Click" FontSize="12" Background="#FFB8B9B6" FontWeight="ExtraBlack" />
+                <Button x:Name="btnContinue" Content="Continue" HorizontalAlignment="Center" Margin="5,4,0,4"  Height="25"  Width="112" Click="btnContinue_Click" FontSize="12" Background="#FFB8B9B6" FontWeight="ExtraBlack" />
+                <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Center" Margin="5,4,0,4"  Height="25"  Width="112" Click="btnExit_Click" FontSize="12" Background="#FFB8B9B6" FontWeight="ExtraBlack"/>
             </StackPanel>
-            <StackPanel HorizontalAlignment="Right" Height="81" Margin="0,5,25,0" Grid.Row="1" VerticalAlignment="Top" Width="178">
-                <ComboBox x:Name="cbxRoomType" HorizontalAlignment="Left" Height="20" Margin="5,5,0,0" Width="140" />
-                <ComboBox x:Name="cbxNumberOfAdults" HorizontalAlignment="Left" Height="20" Margin="5,5,0,0" Width="59" />
-                <ComboBox x:Name="cbxNumberOfChild" HorizontalAlignment="Left" Height="20" Margin="5,5,0,0" Width="59" />
+            <StackPanel  VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="2" Height="182" Width="145" Margin="0,27,0,28">
+                <ComboBox x:Name="cbxRoomType" Height="25"  Width="140" Margin="5,5,0,0" SelectionChanged="cbxRoomType_SelectionChanged" HorizontalAlignment="Left">
+                    <ComboBox.Background>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                            <GradientStop Color="#FFB8B9B6" Offset="1"/>
+                        </LinearGradientBrush>
+                    </ComboBox.Background>
+                    <ComboBoxItem Content="Family"/>
+                    <ComboBoxItem Content="Double"/>
+                    <ComboBoxItem Content="Single"/>
+                </ComboBox>
+                <ComboBox x:Name="cbxNumberOfAdults"  Height="25" Width="60" Margin="5,5,78,0">
+                    <ComboBox.Background>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                            <GradientStop Color="#FFB8B9B6" Offset="1"/>
+                        </LinearGradientBrush>
+                    </ComboBox.Background>
+                    <ComboBoxItem Content="4"/>
+                    <ComboBoxItem Content="3"/>
+                    <ComboBoxItem Content="2"/>
+                    <ComboBoxItem Content="1"/>
+                </ComboBox>
+                <ComboBox x:Name="cbxNumberOfChild"  Height="25" Width="59" Margin="5,5,80,0">
+                    <ComboBox.Background>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                            <GradientStop Color="#FFB8B9B6" Offset="1"/>
+                        </LinearGradientBrush>
+                    </ComboBox.Background>
+                    <ComboBoxItem Content="4"/>
+                    <ComboBoxItem Content="3"/>
+                    <ComboBoxItem Content="2"/>
+                    <ComboBoxItem Content="1"/>
+                    <ComboBoxItem Content="0"/>
+                </ComboBox>
+                <DatePicker x:Name="dateFromDate" Height="25" Width="140" FontSize="11" Margin="5,5,0,0" />
+                <DatePicker x:Name="dateToDate" Margin="5,5,0,0" Height="25" Width ="140" FontSize="11" />
             </StackPanel>
-            <StackPanel HorizontalAlignment="Left" Height="81" Margin="18,5,0,0" Grid.Row="1" VerticalAlignment="Top" Width="154">
-                <Label x:Name="lblRoomType" Content="Room Type:" HorizontalAlignment="Left" Height="25" Margin="5,0,0,0" Width="110"/>
-                <Label x:Name="lblNoOfAdults" Content="Number Of Adults:" HorizontalAlignment="Left" Height="25" Margin="5,0,0,0" Width="110"/>
-                <Label x:Name="lblNoOfChild" Content="Number Of Children(0-15):" HorizontalAlignment="Left" Height="25" Margin="5,0,0,0" Width="160"/>
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" Height="181" Width="171" Margin="0,28">
+                <Label x:Name="lblRoomType" Content="Room Type:" Height="30" Margin="5,0,0,0" Width="176" FontWeight="ExtraBlack"/>
+                <Label x:Name="lblNoOfAdults" Content="Number Of Adults:" Height="30" Margin="5,0,0,0" Width="176" FontWeight="ExtraBlack"/>
+                <Label x:Name="lblNoOfChild" Content="Number Of Children(0-15):" Height="30" Margin="5,0,0,0" Width="176" FontWeight="ExtraBlack"/>
+                <Label x:Name="lblDateFrom" Content="Date From:" Height="30" Margin="5,0,0,0"  Width="176" FontWeight="ExtraBlack" />
+                <Label x:Name="lblDateTo" Content="Date To:" Height="30" Margin="5,0,0,0" FontWeight="ExtraBlack"/>
             </StackPanel>
-            <StackPanel HorizontalAlignment="Left" Height="81" Margin="2,5,0,0" Grid.Row="1" VerticalAlignment="Top" Width="168"/>
-            <StackPanel HorizontalAlignment="Left" Height="32" Margin="2,91,0,0" Grid.Row="1" VerticalAlignment="Top" Width="83">
-                <Label x:Name="lblDateFrom" Content="Date From:" HorizontalAlignment="Left" Width="70" Height="24"/>
-            </StackPanel>
-            <StackPanel HorizontalAlignment="Left" Height="100" Margin="85,93,0,0" Grid.Row="1" VerticalAlignment="Top" Width="90">
-                <DatePicker x:Name="FromDate" HorizontalAlignment="Left" Width="96" Height="23" IsDropDownOpen="True" FontSize="11"/>
-            </StackPanel>
-            <StackPanel HorizontalAlignment="Left" Height="40" Margin="204,95,0,0" Grid.Row="1" VerticalAlignment="Top" Width="69">
-                <Label x:Name="lblDateTo" Content="Date To:" Height="23" Margin="0,0,10,0"/>
-            </StackPanel>
-            <StackPanel HorizontalAlignment="Left" Height="100" Margin="260,95,0,0" Grid.Row="1" VerticalAlignment="Top" Width="113">
-                <DatePicker x:Name="ToDate" Margin="0,0,4,0" Height="23" Width ="96" FontSize="11" IsDropDownOpen="True"/>
-            </StackPanel>
+            <Label x:Name="lblMessageLine" Content="" Height="30" Margin="10,65,26,10" Grid.Row="2" VerticalAlignment="Center" FontWeight="ExtraBlack" FontSize="14" Grid.Column="1" Grid.ColumnSpan="2"/>
+
 
         </Grid>
 

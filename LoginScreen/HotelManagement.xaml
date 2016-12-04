@@ -7,21 +7,21 @@
         mc:Ignorable="d"
         Title="HotelManagement" Height="300" Width="500" WindowStyle="None" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Grid>
+        <Grid Background="#FFC4DEC1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="379*" />
-                <ColumnDefinition Width="113*" />
+                <ColumnDefinition Width="367*" />
+                <ColumnDefinition Width="125*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="10*" />
                 <RowDefinition Height="46*" />
             </Grid.RowDefinitions>
-            <Label x:Name="lblTitle" Content="Hotel Management" Grid.Column="0" HorizontalAlignment="Center"  VerticalAlignment="Center"  FontSize="18" Height="34" Width="184" FontWeight="Bold" Margin="107,6,88,12"/>
-            <StackPanel Grid.Column="1" HorizontalAlignment="Right" Height="41" Grid.Row="1" VerticalAlignment="Bottom" Width="110">
-                <Button x:Name="btnUpdateRate" Content="Update Rate" HorizontalAlignment="Right" Margin="0,1,3,1"  Height="18"  Width="104"  FontSize="10" Click="btnUpdateRate_Click" />
-                <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Right" Margin="0,1,3,1"  Height="18"  Width="104" Click="btnExit_Click" FontSize="10"/>
+            <Label x:Name="lblTitle" Content="Hotel Management" Grid.Column="0" HorizontalAlignment="Center"  VerticalAlignment="Center"  FontSize="18" Height="34" Width="184" FontWeight="ExtraBlack" Foreground="#FFD81111" Margin="100,6,83,12"/>
+            <StackPanel Grid.Column="1" HorizontalAlignment="Left" Height="80" Grid.Row="1" VerticalAlignment="Bottom" Width="120">
+                <Button x:Name="btnUpdateRate" Content="Update Rate" HorizontalAlignment="Right" Margin="5,4,0,4"  Height="25"  Width="112" FontSize="12" FontWeight="ExtraBlack" Background="#FFB8B9B6" Click="btnUpdateRate_Click" />
+                <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Right" Margin="5,4,0,4"  Height="25"  Width="112" Click="btnExit_Click" FontSize="12" FontWeight="ExtraBlack" Background="#FFB8B9B6"/>
             </StackPanel>
-            <StackPanel HorizontalAlignment="Left" Height="198" Margin="210,5,0,0" Grid.Row="1" VerticalAlignment="Top" Width="159">
+            <StackPanel HorizontalAlignment="Left" Height="198" Margin="210,5,0,0" Grid.Row="1" VerticalAlignment="Top" Width="159" Grid.ColumnSpan="2">
                 <TextBox x:Name="tbxNoOfCanc" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Width="139"/>
                 <TextBox x:Name="tbxNoOfOccupied" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap" Width="139"/>
                 <TextBox x:Name="tbxNoOfUnoccupiedt" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" Width="139"/>

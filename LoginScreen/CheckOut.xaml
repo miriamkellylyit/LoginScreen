@@ -5,31 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LoginScreen"
         mc:Ignorable="d"
-        Title="CheckOut" Height="300" Width="500" WindowStyle="None" WindowStartupLocation="CenterScreen">
+        Title="CheckOut" Height="400" Width="800" WindowState="Maximized" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="266*"/>
+            <RowDefinition Height="103*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="61*"/>
+            <ColumnDefinition Width="185*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Background="#FFC4DEC1" Grid.ColumnSpan="2" Grid.RowSpan="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="369*" />
-                <ColumnDefinition Width="113*" />
+                <ColumnDefinition Width="149*" />
+                <ColumnDefinition Width="212*"/>
+                <ColumnDefinition Width="35*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="10*" />
-                <RowDefinition Height="46*" />
+                <RowDefinition Height="129*" />
+                <RowDefinition Height="140*" />
+                <RowDefinition Height="100*"/>
             </Grid.RowDefinitions>
-            <Label x:Name="lblScreenTitle" Content="Check Out" Grid.Column="0" HorizontalAlignment="Center"  VerticalAlignment="Center"  FontSize="18" Height="34" Width="102" FontWeight="Bold" Margin="138,6,129,10"/>
-            <StackPanel Grid.Column="1" HorizontalAlignment="Right" Height="41" Grid.Row="1" VerticalAlignment="bottom" Width="110" Margin="0,0,3,10">
-                <Button x:Name="btnConfirm" Content="Confirm" HorizontalAlignment="Center" Margin="1"  Height="18"  Width="104"  FontSize="10" Click="btnConfirm_Click" />
-                <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Center" Margin="1"  Height="18"  Width="104" Click="btnExit_Click" FontSize="10"/>
+            <Label x:Name="lblScreenTitle" Content="Check Out" Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Center"  FontSize="36" Height="56" Width="200" FontWeight="ExtraBlack" Foreground="#FFD81111" Margin="12,35,212,38" />
+            <StackPanel Grid.Column="2" HorizontalAlignment="Left" Height="100" Grid.Row="2" VerticalAlignment="bottom" Width="120" Margin="0,0,-50,0">
+                <Button x:Name="btnPayment" Content="Payment" Margin="5,4,0,4"  Height="25" Width="112" FontSize="12" FontWeight="ExtraBlack" Background="#FFB8B9B6" Grid.Row="1" Click="btnPayment_Click" />
+                <Button x:Name="btnConfirm" Content="Confirm" Margin="5,4,0,4"  Height="25"  Width="112"  FontSize="12" FontWeight="ExtraBlack" Background="#FFB8B9B6" Click="btnConfirm_Click" />
+                <Button x:Name="btnExit" Content="Exit"  Margin="5,4,0,4"  Height="25"  Width="112" Click="btnExit_Click" FontSize="12" FontWeight="ExtraBlack" Background="#FFB8B9B6"/>
             </StackPanel>
-            <StackPanel HorizontalAlignment="Left" Height="35" Margin="160,27,0,0" Grid.Row="1" VerticalAlignment="Top" Width="170">
-                <TextBox x:Name="tbxBookingReference" HorizontalAlignment="Left" Height="28" Margin="5,4,0,0" TextWrapping="Wrap" Width="159"/>
+            <StackPanel HorizontalAlignment="Left" Height="35" Margin="110,27,0,0" Grid.Row="1" VerticalAlignment="Top" Width="140" Grid.Column="1">
+                <TextBox x:Name="tbxBookingReference" HorizontalAlignment="Left" Height="30" Margin="0,4,0,0" TextWrapping="Wrap" Width="130"/>
             </StackPanel>
-            <StackPanel HorizontalAlignment="Left" Height="35" Margin="30,27,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120">
-                <Label x:Name="lblRoomNumber" Content="Room Number:" HorizontalAlignment="Left" Height="28"  Width="118"/>
+            <StackPanel HorizontalAlignment="Left" Height="35" Grid.Row="1" VerticalAlignment="Top" Width="100" Grid.Column="1" Margin="0,27,0,0">
+                <Label x:Name="lblRoomNumber" Content="Room Number:" Margin="0,4,0,0" Height="30"  Width="98"/>
             </StackPanel>
-            <Button x:Name="btnRequestHousekeep" Content="Request Housekeeping" HorizontalAlignment="Left" Height="28" Margin="39,101,0,0" Grid.Row="1" VerticalAlignment="Top" Width="291" Click="btnRequestHousekeep_Click"/>
-            <Label x:Name="lblMessage" Content="" HorizontalAlignment="Left" Height="28" Margin="39,189,0,0" Grid.Row="1" VerticalAlignment="Top" Width="290"/>
-            <Button x:Name="btnPayment" Content="Payment" HorizontalAlignment="Center" Margin="39,166,234,56"  Width="104" FontSize="10" Grid.Row="1" Click="btnPayment_Click" />
+            <Button x:Name="btnRequestHousekeep" Content="Request Housekeeping" HorizontalAlignment="Left" Height="65" Margin="0,68,0,0" Grid.Row="1" VerticalAlignment="Top" Width="245" FontSize="12" FontWeight="ExtraBlack" Background="#FFB8B9B6" Click="btnRequestHousekeep_Click" Grid.Column="1"/>
+            <Label x:Name="lblMessage" Content="" HorizontalAlignment="Left" Height="25" Margin="10,46,0,0" Grid.Row="2" VerticalAlignment="Top" Width="290" Grid.Column="1"/>
         </Grid>
 
     </Grid>

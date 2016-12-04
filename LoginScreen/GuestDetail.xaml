@@ -5,52 +5,53 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LoginScreen"
         mc:Ignorable="d"
-        Title="GuestDetail" Height="350" Width="600">
+        Title="GuestDetail" Height="450" Width="800" WindowState="Maximized">
     <Grid>
-        <Grid Margin="15,10,10,15">
+        <Grid Background="#FFC4DEC1" Margin="0,-21,0,0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="106*" />
-                <ColumnDefinition Width="25*" />
+                <ColumnDefinition Width="154*" />
+                <ColumnDefinition Width="481*"/>
+                <ColumnDefinition Width="157*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="10*" />
-                <RowDefinition Height="46*" />
+                <RowDefinition Height="101*" />
+                <RowDefinition Height="339*" />
             </Grid.RowDefinitions>
-            <Label x:Name="lblScreenTitle" Content="Guest Detail" Grid.Column="0" HorizontalAlignment="Center"  VerticalAlignment="Center"  FontSize="18" Height="34" Width="118" FontWeight="Bold"/>
-            <StackPanel Grid.Column="1" HorizontalAlignment="Right" Height="70" Grid.Row="5" VerticalAlignment="Bottom" Width="110">
-                <Button x:Name="btnExistingCustomer" Content="Existing Customer" HorizontalAlignment="Center" Margin="2" Height="20"  Width="104" FontSize="10" Click="btnExistingCustomer_Click" />
-                <Button x:Name="btnPayment" Content="Payment" HorizontalAlignment="Center" Margin="2"  Height="20"  Width="104" FontSize="10" Click="btnPayment_Click" />
-                <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Center" Margin="2"  Height="20"  Width="104" Click="btnExit_Click" FontSize="10"/>
+            <Label x:Name="lblScreenTitle" Content="Guest Detail" HorizontalAlignment="Left"  VerticalAlignment="Center"  FontSize="36" Height="50" Width="242" FontWeight="ExtraBlack" Foreground="#FFD81111"  Grid.Column="1" Margin="132,18,0,33"/>
+            <StackPanel Grid.Column="2" HorizontalAlignment="Center" Height="100" Grid.Row="1" VerticalAlignment="Bottom" Width="120" Margin="19,0,18,10">
+                <Button x:Name="btnExistingCustomer" Content="Existing Customer" HorizontalAlignment="Center" Margin="5,4,0,4" Height="25"  Width="112" Click="btnExistingCustomer_Click" FontSize="12" FontWeight="ExtraBlack" Background="#FFB8B9B6" />
+                <Button x:Name="btnPayment" Content="Payment" HorizontalAlignment="Center" Margin="5,4,0,4"  Height="25"  Width="112" Click="btnPayment_Click" FontSize="12" FontWeight="ExtraBlack" Background="#FFB8B9B6" />
+                <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Center" Margin="5,4,0,4"  Height="25"  Width="112" Click="btnExit_Click" FontSize="12" FontWeight="ExtraBlack" Background="#FFB8B9B6"/>
             </StackPanel>
-            <StackPanel HorizontalAlignment="Right" Height="195" Margin="0,4,10,0" Grid.Row="1" VerticalAlignment="Top" Width="94">
-                <TextBox x:Name="tbxEmail" HorizontalAlignment="Left" Height="20" Margin="5,4,0,0" TextWrapping="Wrap" Width="79"/>
-                <TextBox x:Name="tbxPhone" HorizontalAlignment="Left" Height="20" Margin="5,4,0,0" TextWrapping="Wrap" Width="79"/>
-                <TextBox x:Name="tbxNotes" HorizontalAlignment="Left" Height="136" Margin="5,4,0,0" TextWrapping="Wrap" Width="79"/>
+            <StackPanel HorizontalAlignment="left" Height="232" VerticalAlignment="Top" Width="248" Grid.Column="1" Margin="347,4,0,0" Grid.Row="1" Grid.ColumnSpan="2">
+                <TextBox x:Name="tbxEmail" TabIndex="8"  HorizontalAlignment="Left" Height="30" Margin="5,4,0,0" TextWrapping="Wrap" Width="233"/>
+                <TextBox x:Name="tbxPhone" TabIndex="9" HorizontalAlignment="Left" Height="30" Margin="5,4,0,0" TextWrapping="Wrap" Width="233"/>
+                <TextBox x:Name="tbxNotes" TabIndex="10" HorizontalAlignment="Left" Height="136" Margin="5,4,0,0" TextWrapping="Wrap" Width="233"/>
             </StackPanel>
-            <StackPanel HorizontalAlignment="Left" Height="195" Margin="0,4,0,0" Grid.Row="1" VerticalAlignment="Top" Width="94">
-                <Label x:Name="lblSurname" Content="Surname:" HorizontalAlignment="Left" Height="24" Width="90"/>
-                <Label x:Name="lblFirstName" Content="FirstName:" HorizontalAlignment="Left" Height="24"  Width="90"/>
-                <Label x:Name="lblAddressLine1" Content="Address Line 1:" HorizontalAlignment="Left" Height="24" Width="90"/>
-                <Label x:Name="lblAddressLine2" Content="Address Line 2:" HorizontalAlignment="Left" Height="24"  Width="90"/>
-                <Label x:Name="lblTown" Content="Town:" HorizontalAlignment="Left" Height="24"  Width="90"/>
-                <Label x:Name="lblCounty" Content="County:" HorizontalAlignment="Left" Height="24"  Width="90"/>
-                <Label x:Name="lblCountry" Content="Country:" HorizontalAlignment="Left" Height="24"  Width="90"/>
-                <Label x:Name="lblPostCode" Content="Post Code:" HorizontalAlignment="Left" Height="24"  Width="90"/>
+            <StackPanel HorizontalAlignment="left" Height="282" Margin="3,4,0,0" Grid.Row="1" VerticalAlignment="Top" Width="104" Grid.Column="1">
+                <Label x:Name="lblSurname" Content="Surname:" HorizontalAlignment="Left" Height="32" Width="103" FontWeight="ExtraBlack"/>
+                <Label x:Name="lblFirstName" Content="FirstName:" HorizontalAlignment="Left" Height="32"  Width="103" FontWeight="ExtraBlack"/>
+                <Label x:Name="lblAddressLine1" Content="Address Line 1:" HorizontalAlignment="Left" Height="32" Width="103" FontWeight="ExtraBlack"/>
+                <Label x:Name="lblAddressLine2" Content="Address Line 2:" HorizontalAlignment="Left" Height="32"  Width="103" FontWeight="ExtraBlack"/>
+                <Label x:Name="lblTown" Content="Town:" Height="32" FontWeight="ExtraBlack"/>
+                <Label x:Name="lblCounty" Content="County:" Height="32" FontWeight="ExtraBlack"/>
+                <Label x:Name="lblCountry" Content="Country:" HorizontalAlignment="Left" Height="32"  Width="103" FontWeight="ExtraBlack"/>
+                <Label x:Name="lblPostCode" Content="Post Code:" HorizontalAlignment="Left" Height="32"  Width="103" FontWeight="ExtraBlack"/>
             </StackPanel>
-            <StackPanel HorizontalAlignment="Left" Height="195" Margin="110,4,0,0" Grid.Row="1" VerticalAlignment="Top" Width="94">
-                <TextBox x:Name="tbxSurname" HorizontalAlignment="Left" Height="20" Margin="5,4,0,0" TextWrapping="Wrap" Width="79"/>
-                <TextBox x:Name="tbxFirstName" HorizontalAlignment="Left" Height="20" Margin="5,4,0,0" TextWrapping="Wrap" Width="79"/>
-                <TextBox x:Name="tbxAddressLine1" HorizontalAlignment="Left" Height="20" Margin="5,4,0,0" TextWrapping="Wrap" Width="79"/>
-                <TextBox x:Name="tbxAddressLine2" HorizontalAlignment="Left" Height="20" Margin="5,4,0,0" TextWrapping="Wrap" Width="79"/>
-                <TextBox x:Name="tbxTown" HorizontalAlignment="Left" Height="20" Margin="5,4,0,0" TextWrapping="Wrap" Width="79"/>
-                <TextBox x:Name="tbxCounty" HorizontalAlignment="Left" Height="20" Margin="5,4,0,0" TextWrapping="Wrap" Width="79"/>
-                <TextBox x:Name="tbxCountry" HorizontalAlignment="Left" Height="20" Margin="5,4,0,0" TextWrapping="Wrap" Width="79"/>
-                <TextBox x:Name="tbxPostCode" HorizontalAlignment="Left" Height="20" Margin="5,4,0,0" TextWrapping="Wrap" Width="79"/>
+            <StackPanel HorizontalAlignment="Left" Height="282" Grid.Row="1" VerticalAlignment="Top" Width="130" Grid.Column="1" Margin="107,0,0,0">
+                <TextBox x:Name="tbxSurname" TabIndex="0" HorizontalAlignment="Left" Height="30" Margin="5,2,0,0" TextWrapping="Wrap" Width="114" Text="{Binding Surname}" TextChanged="tbxSurname_TextChanged"/>
+                <TextBox x:Name="tbxFirstName" TabIndex="1" HorizontalAlignment="Left" Height="30" Margin="5,2,0,0" TextWrapping="Wrap" Width="114" Text="{Binding Firstname}" TextChanged="tbxFirstName_TextChanged" />
+                <TextBox x:Name="tbxAddressLine1" TabIndex="2" HorizontalAlignment="Left" Height="30" Margin="5,2,0,0" TextWrapping="Wrap" Width="114" Text="{Binding AddressLine1}" TextChanged="tbxAddressLine1_TextChanged"/>
+                <TextBox x:Name="tbxAddressLine2" TabIndex="3" HorizontalAlignment="Left" Height="30" Margin="5,2,0,0" TextWrapping="Wrap" Width="114" Text="{Binding AddressLine2}" TextChanged="tbxAddressLine2_TextChanged"/>
+                <TextBox x:Name="tbxTown" TabIndex="4" HorizontalAlignment="Left" Height="30" Margin="5,2,0,0" TextWrapping="Wrap" Width="114" Text="{Binding Town}" TextChanged="tbxTown_TextChanged" />
+                <TextBox x:Name="tbxCounty" TabIndex="5" HorizontalAlignment="Left" Height="30" Margin="5,2,0,0" TextWrapping="Wrap" Width="114" Text="{Binding County}" TextChanged="tbxCounty_TextChanged" />
+                <TextBox x:Name="tbxCountry" TabIndex="6" HorizontalAlignment="Left" Height="30" Margin="5,2,0,0" TextWrapping="Wrap" Width="114" Text="{Binding Country}" TextChanged="tbxCountry_TextChanged" />
+                <TextBox x:Name="tbxPostCode" TabIndex="7" HorizontalAlignment="Left" Height="30" Margin="5,2,0,0" TextWrapping="Wrap" Width="114" Text="{Binding PostCode}" TextChanged="tbxPostCode_TextChanged"/>
             </StackPanel>
-            <StackPanel HorizontalAlignment="Left" Height="195" Margin="238,4,0,0" Grid.Row="1" VerticalAlignment="Top" Width="94">
-                <Label x:Name="lblEmail" Content="Email Address:" HorizontalAlignment="Left" Height="24" Width="93"/>
-                <Label x:Name="lblPhone" Content="Phone Number:" HorizontalAlignment="Left" Height="24" Width="93"/>
-                <Label x:Name="lblNotes" Content="Notes:" HorizontalAlignment="Left" Height="24" Width="93"/>
+            <StackPanel HorizontalAlignment="Left" Height="249" VerticalAlignment="Top" Width="110" Grid.Column="1" Margin="237,0,0,0" Grid.Row="1">
+                <Label x:Name="lblEmail" Content="Email Address:" Margin="5,4,0,0"  HorizontalAlignment="Left" Height="32" Width="109" FontWeight="ExtraBlack"/>
+                <Label x:Name="lblPhone" Content="Phone Number:" Margin="5,4,0,0"  HorizontalAlignment="Left" Height="32" Width="109" FontWeight="ExtraBlack"/>
+                <Label x:Name="lblNotes" Content="Notes:" Margin="5,4,0,0"  HorizontalAlignment="Left" Height="32" Width="109" FontWeight="ExtraBlack"/>
             </StackPanel>
         </Grid>
 

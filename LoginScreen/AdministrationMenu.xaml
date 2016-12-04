@@ -7,24 +7,24 @@
         mc:Ignorable="d"
         Title="AdministrationMenu" Height="300" Width="500" WindowStyle="None" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Grid Margin="0,10,0,0">
+        <Grid Background="#FFC4DEC1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="377*" />
                 <ColumnDefinition Width="115*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="10*" />
-                <RowDefinition Height="46*" />
+                <RowDefinition Height="79*" />
+                <RowDefinition Height="203*" />
             </Grid.RowDefinitions>
-            <Label x:Name="lblScreenTitle" Content="Administration Menu" Grid.Column="0" HorizontalAlignment="Center"  VerticalAlignment="Center"  FontSize="18" Height="34" Width="182" Margin="98,8,97,8"/>
-            <StackPanel HorizontalAlignment="Right" Height="29" Grid.Row="1" VerticalAlignment="Bottom" Width="117" Grid.ColumnSpan="2">
-                <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Center"  Height="22"  Width="104" Click="btnExit_Click" Margin="6,0,7,0"/>
+            <Label x:Name="lblScreenTitle" Content="Administration Menu" Grid.Column="0" HorizontalAlignment="Center"  VerticalAlignment="Center"  FontSize="36" FontWeight="ExtraBlack" Foreground="#FFD81111" Height="59" Width="394" Margin="68,10,30,10" Grid.ColumnSpan="2"/>
+            <StackPanel HorizontalAlignment="Right" Height="29" Grid.Row="1" VerticalAlignment="Bottom" Width="120" Grid.ColumnSpan="2">
+                <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Center"  Height="25"  Width="112" Click="btnExit_Click" Margin="6,0,7,0" FontWeight="ExtraBlack" Background="#FFB8B9B6"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" Height="166" Margin="68,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="276">
-                <Button x:Name="btnCreateUser" Content="Create User" HorizontalAlignment="Left" Height="35" Margin="10,5,0,0" Width="245" Click="btnCreateUser_Click" />
-                <Button x:Name="btnUpdateUser" Content="Update User" HorizontalAlignment="Left" Height="35" Margin="10,5,0,0" Width="245" Click="btnUpdateUser_Click" />
-                <Button x:Name="btnDeleteUser" Content="Delete User" HorizontalAlignment="Left" Height="35" Margin="10,5,0,0" Width="245" Click="btnDeleteUser_Click" />
-                <Button x:Name="btnResetPassword" Content="Reset Password" HorizontalAlignment="Left" Height="35" Margin="10,5,0,0" Width="245" Click="btnResetPassword_Click" />
+                <Button x:Name="btnCreateUser" Content="Create User" HorizontalAlignment="Left" Height="35" Margin="10,5,0,0" Width="245" Click="btnCreateUser_Click" FontWeight="ExtraBlack" Background="#FFB8B9B6" />
+                <Button x:Name="btnUpdateUser" Content="Update User" HorizontalAlignment="Left" Height="35" Margin="10,5,0,0" Width="245" Click="btnUpdateUser_Click" FontWeight="ExtraBlack" Background="#FFB8B9B6"/>
+                <Button x:Name="btnDeleteUser" Content="Delete User" HorizontalAlignment="Left" Height="35" Margin="10,5,0,0" Width="245" Click="btnDeleteUser_Click" FontWeight="ExtraBlack" Background="#FFB8B9B6" />
+                <Button x:Name="btnResetPassword" Content="Reset Password" HorizontalAlignment="Left" Height="35" Margin="10,5,0,0" Width="245" Click="btnResetPassword_Click" FontWeight="ExtraBlack" Background="#FFB8B9B6" />
             </StackPanel>
 
         </Grid>

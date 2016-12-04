@@ -23,8 +23,12 @@ namespace LoginScreen
         //Database entity framework reference
         MKSQLDatabaseEntities dbEntities = new MKSQLDatabaseEntities();
 
-        //Global list of user records
-        List<AUTHENTICATION> userList = new List<AUTHENTICATION>();  
+        //Global list of employee records
+        List<AUTHENTICATION> userList = new List<AUTHENTICATION>();
+
+        //initialise counts
+        int countStaff = 0;
+        int countManager = 0;
 
         public MainWindow()
         {
@@ -43,11 +47,24 @@ namespace LoginScreen
         {
             //Clear contents of the Employee List
             userList.Clear();
-            foreach (var user in userList)
+
+            //Check for any errors
+            try
             {
-                //Add all users to the Global user list
-                userList.Add(user);
+                foreach (var user in dbEntities.AUTHENTICATIONs)
+                {
+                    //Add all users to the Global user list
+                    userList.Add(user);
+                }
             }
+            //Report Errors
+            catch (Exception)
+            {
+                //Display message error loading database
+                MessageBox.Show("Problem loading user data from database");
+                throw;
+            }
+           
         }
 
         //Get Employee details
@@ -83,8 +100,10 @@ namespace LoginScreen
         {
             //Create an instance of a user class
             AUTHENTICATION userDetails = new AUTHENTICATION();
-            //Get the Username from teh tbxUserName.  Remove unnecessary spaces
+            //Get the Username from the tbxUserName.  Remove unnecessary spaces
             string currentUser = tbxUsername.Text.Trim();
+            //Retrieve first 3 characters of Username
+            string sub = currentUser.Substring(0,3);
             //Get password text.  Note it does not use he same syntax as a normal text box
             string currentPassword = passwordBox.Password;
             //Run the mtdGetUserDetails method with the inptted user name and password information
@@ -92,37 +111,99 @@ namespace LoginScreen
 
 
             //Normal User
-            if (userDetails.AccessLevel == "1")
+            if (userDetails.AccessLevel == 1)
             {
                 this.Hide();
                 ReservationMenu RsvMenu = new ReservationMenu();
                 RsvMenu.Owner = this;
                 RsvMenu.ShowDialog();
+                //initialise count
+                int count = 0;
             }
 
             //Management
-            if (userDetails.AccessLevel == "2")
+            if (userDetails.AccessLevel == 2)
             {
                 this.Hide();
                 ManagementMenu ManMenu = new ManagementMenu();
                 ManMenu.Owner = this;
                 ManMenu.ShowDialog();
+                //initialise count
+                int count = 0;
             }
 
             //Other
             else
             {
-               
-                lblMessage.Content = "Invalid details";
-                tbxUsername.Text = "";
-                passwordBox.Password = "";
-                tbxUsername.Focus();
+                //Start Count
+                countStaff++;
+
+                //Normal user
+                //First attempt
+                if (sub == "STF" && countStaff == 1)
+                {
+                    lblMessage.Content = "Username and Password invalid, please try again";
+                    tbxUsername.Text = "";
+                    passwordBox.Password = "";
+                    tbxUsername.Focus();
+                }
+
+                //Second attempt
+                if (sub == "STF" && countStaff == 2)
+                {
+                    lblMessage.Content = "Username and Password invalid, One more try";
+                    tbxUsername.Text = "";
+                    passwordBox.Password = "";
+                    tbxUsername.Focus();
+                }
+
+                //Third attempt
+                if (sub == "STF" && countStaff == 3 || sub == "STF" && countStaff > 3)
+                {
+                    lblMessage.Content = "Username and Password invalid, please contact the administrator";
+                    tbxUsername.IsEnabled = false;
+                    passwordBox.IsEnabled = false;
+                    tbxUsername.Focus();
+                }
+
+                //Start Count
+                countManager++;
+
+                //Manager
+                //First attempt
+                if (sub == "MGR" && countManager == 1)
+                {
+                    lblMessage.Content = "Username and Password invalid, please try again";
+                    tbxUsername.Text = "";
+                    passwordBox.Password = "";
+                    tbxUsername.Focus();
+                }
+
+                //Second attempt
+                if (sub == "MGR" && countManager == 2)
+                {
+                    lblMessage.Content = "Username and Password invalid, One more try";
+                    tbxUsername.Text = "";
+                    passwordBox.Password = "";
+                    tbxUsername.Focus();
+                }
+                //Third attempt
+                if (sub == "MGR" && countManager == 3 || sub == "MGR" && countManager > 3)
+                {
+                    lblMessage.Content = "Reset Password";
+                    tbxUsername.Text = "";
+                    passwordBox.Password = "";
+                    tbxUsername.Focus();
+                    btnResetPassword.Visibility = Visibility.Visible;
+                    countManager = 0;
+                }
 
             }
-         
+
         }
 
-        private void btnResetPassword_Click(object sender, RoutedEventArgs e)
+
+    private void btnResetPassword_Click(object sender, RoutedEventArgs e)
         {
             //Go to Password Screen
             this.Hide();

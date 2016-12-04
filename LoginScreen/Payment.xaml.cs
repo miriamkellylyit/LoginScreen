@@ -44,5 +44,20 @@ namespace LoginScreen
             tbxSecurityCode.Text = "";
             tbxCardNumber.Focus();
         }
+
+        private void cbxPaymentType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void cboMonth_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void tbxTotalAmount_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

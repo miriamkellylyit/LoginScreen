@@ -7,22 +7,22 @@
         mc:Ignorable="d"
         Title="ManagementMenu" Height="300" Width="500" WindowStyle="None" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Grid Margin="0,-10,0,0">
+        <Grid Background="#FFC4DEC1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="63*" />
-                <ColumnDefinition Width="19*" />
+                <ColumnDefinition Width="187*" />
+                <ColumnDefinition Width="59*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="10*" />
-                <RowDefinition Height="46*" />
+                <RowDefinition Height="35*" />
+                <RowDefinition Height="111*" />
             </Grid.RowDefinitions>
-            <Label x:Name="lblScreenTitle" Content="Management Menu" Grid.Column="0" HorizontalAlignment="Center"  VerticalAlignment="Center"  FontSize="18" Height="34" Width="182" FontWeight="Bold" Margin="114,10,82,10"/>
-            <StackPanel HorizontalAlignment="Right" Height="27" Grid.Row="1" VerticalAlignment="Bottom" Width="117" Grid.ColumnSpan="2">
-                <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Center"  Height="22"  Width="104" Click="btnExit_Click" FontSize="10"/>
+            <Label x:Name="lblScreenTitle" Content="Management Menu" Grid.Column="0" HorizontalAlignment="Center"  VerticalAlignment="Center"  FontSize="36" Height="68" Width="254" FontWeight="ExtraBlack" Foreground="#FFD81111" Margin="114,6,6,218" Grid.RowSpan="2"/>
+            <StackPanel HorizontalAlignment="Left" Height="27" Grid.Row="1" VerticalAlignment="Bottom" Width="117" Grid.Column="1" Margin="1,0,0,10">
+                <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Center"  Height="25"  Width="112" Click="btnExit_Click" FontSize="12" FontWeight="ExtraBlack" Background="#FFB8B9B6"/>
             </StackPanel>
-            <StackPanel HorizontalAlignment="Left" Height="137" Margin="68,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="276">
-                <Button x:Name="btnHotelManagement" Content="Hotel Management" HorizontalAlignment="Left" Height="35" Margin="10,15,0,0" Width="245" Click="btnHotelManagement_Click" />
-                <Button x:Name="btnAdministration" Content="Administration" HorizontalAlignment="Left" Height="35" Margin="10,25,0,0" Width="245" Click="btnAdministration_Click" />
+            <StackPanel HorizontalAlignment="Left" Height="188" Margin="68,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="276">
+                <Button x:Name="btnHotelManagement" Content="Hotel Management" HorizontalAlignment="Left" Height="65" Margin="10,15,0,0" Width="245" Click="btnHotelManagement_Click" FontSize="12" FontWeight="ExtraBlack" Background="#FFB8B9B6" />
+                <Button x:Name="btnAdministration" Content="Administration" HorizontalAlignment="Left" Height="65" Margin="10,25,0,0" Width="245" Click="btnAdministration_Click" FontSize="12" FontWeight="ExtraBlack" Background="#FFB8B9B6" />
             </StackPanel>
 
         </Grid>

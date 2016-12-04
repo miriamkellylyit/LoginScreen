@@ -44,5 +44,10 @@ namespace LoginScreen
         {
             //Go to Database and check for rooms available for New dates entered
         }
+
+        private void tbxDateFrom_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

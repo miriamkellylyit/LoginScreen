@@ -5,31 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LoginScreen"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="625" WindowStyle="None" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
-    <Grid>
+        Title="MainWindow" Height="450" Width="700" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" WindowState="Maximized">
+    <Grid Background="#FFC4DEC1">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="142*" />
-            <ColumnDefinition Width="327*" />
-            <ColumnDefinition Width="148*" />
+            <ColumnDefinition Width="247*" />
+            <ColumnDefinition Width="307*" />
+            <ColumnDefinition Width="138*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="59*" />
-            <RowDefinition Height="85*"/>
-            <RowDefinition Height="89*" />
+            <RowDefinition Height="129*" />
+            <RowDefinition Height="66*"/>
+            <RowDefinition Height="105*" />
             <RowDefinition Height="119*" />
-            <RowDefinition Height="90*" />
         </Grid.RowDefinitions>
-        <Label x:Name="lblScreenTitle" Content="Login Screen" Grid.Column="1" HorizontalAlignment="Center"  VerticalAlignment="Center" FontSize="18" FontWeight="Bold" Height="34" Margin="103,12,104,13" Width="120"/>
-        <Label x:Name="lblUsername" Content="Username:" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="2" Margin="5,0,0,5" VerticalAlignment="Bottom" FontWeight="Bold" Height="26" Width="70"/>
-        <Label x:Name="lblPassword" Content="Password:" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="3" Margin="5,5,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="66"/>
-        <Label x:Name="lblHeading" Content="Enter Username and Password:" Grid.Column="1" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Bottom" FontSize="14" FontWeight="Bold" Height="29" Width="212"/>
-        <StackPanel Grid.Column="2" HorizontalAlignment="Right" Height="64" Grid.Row="4" VerticalAlignment="Top" Width="147" Margin="0,26,0,0">
-            <Button x:Name="btnContinue" Content="Continue" HorizontalAlignment="Right" Margin="0,4,15,4" Height="22"  Width="104" Click="btnContinue_Click" FontSize="10"/>
-            <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Right" Margin="5,4,15,4" Height="22"  Width="104" Click="btnExit_Click" FontSize="10"/>
+        <Label x:Name="lblScreenTitle" Content="Login Screen" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="36" Height="76" Width="256" FontWeight="ExtraBlack" Foreground="#FFD81111" Margin="0,26,0,27"/>
+        <Label x:Name="lblHeading" Content="Enter Username and Password:" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="18" FontWeight="Bold" Height="46" Width="270" />
+        <StackPanel Grid.Column="2" HorizontalAlignment="Left" Height="103" Grid.Row="3" VerticalAlignment="Top" Width="120" Margin="0,6,0,0">
+            <Button x:Name="btnResetPassword" Content="Reset Password" HorizontalAlignment="Left" Margin="5,4,0,4" Height="25" Width="112" Click="btnResetPassword_Click" FontSize="12" FontWeight="ExtraBlack" Background="#FFB8B9B6" Visibility="Collapsed"/>
+            <Button x:Name="btnContinue" Content="Continue" HorizontalAlignment="left" Margin="5,4,0,4" Height="25"  Width="112" Click="btnContinue_Click" FontSize="12" FontWeight="ExtraBlack" Background="#FFB8B9B6"/>
+            <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Left" Margin="5,4,0,4" Height="25"  Width="112" Click="btnExit_Click" FontSize="12" FontWeight="ExtraBlack" Background="#FFB8B9B6"/>
         </StackPanel>
-        <TextBox x:Name="tbxUsername" TabIndex="0" Grid.Column="1" HorizontalAlignment="Left" Margin="5,0,0,5" Height="25" Grid.Row="2" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="180"/>
-        <PasswordBox x:Name="passwordBox" TabIndex="1" Grid.Column="1" HorizontalAlignment="Left" Margin="5,5,0,0" Height="25" Grid.Row="3" VerticalAlignment="Top" Width="180"/>
-        <Label x:Name="lblMessage" Content="" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="10,43,0,0" Grid.Row="4" VerticalAlignment="Top" Width="229"/>
-        <Button x:Name="btnResetPassword" Content="Reset Password" HorizontalAlignment="Right" Margin="0,10,213,58" Height="22" Width="104" FontSize="10" Grid.Column="1" Grid.Row="4" Click="btnResetPassword_Click"/>
+        <StackPanel  Height="93" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Grid.Column="1" Width="114">
+            <Label x:Name="lblUsername" Content="Username:" FontWeight="Bold" Width="114" Height="32" FontSize="16" />
+            <Label x:Name="lblPassword" Content="Password:" FontWeight="Bold" Height="30" Width="110" FontSize="16" />
+        </StackPanel>
+        <StackPanel Grid.Column="1" HorizontalAlignment="Left" Height="93" Margin="114,0,0,0" Grid.Row="2" VerticalAlignment="Top" Width="208" Grid.ColumnSpan="2">
+            <TextBox x:Name="tbxUsername" TabIndex="0" HorizontalAlignment="Left" Margin="0,0,-26,0" Height="38" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="214" FontSize="14"/>
+            <PasswordBox x:Name="passwordBox" TabIndex="1" HorizontalAlignment="Left" Margin="0,0,-26,0" Height="43" VerticalAlignment="Top" Width="214" FontSize="14"/>
+        </StackPanel>
+        <Label x:Name="lblMessage" Content="" HorizontalAlignment="Left" Height="30" Margin="152,27,0,0" Grid.Row="3" VerticalAlignment="Top" Width="522" FontSize="14" FontWeight="ExtraBlack" Grid.ColumnSpan="3"/>
     </Grid>
 </Window>
